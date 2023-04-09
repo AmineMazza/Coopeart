@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cooperatif{% endblock %}
+
+{% block body %}
+    <h1>Edit Cooperatif</h1>
+
+    {{ include('cooperatif/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_cooperatif_index') }}">back to list</a>
+
+    {{ include('cooperatif/_delete_form.html.twig') }}
+{% endblock %}

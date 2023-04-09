@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Artisan{% endblock %}
+
+{% block body %}
+    <h1>Create new Artisan</h1>
+
+    {{ include('artisan/_form.html.twig') }}
+
+    <a href="{{ path('app_artisan_index') }}">back to list</a>
+{% endblock %}

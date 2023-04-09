@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cooperatif index{% endblock %}
+
+{% block body %}
+    <h1>Les Cooperatives</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_Cooperatif</th>
+                <th>Nom_Gerant</th>
+                <th>Telephone</th>
+                <th>Ville</th>
+                <th>Email</th>
+                <th>Image_profil</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cooperatif in cooperatifs %}
+            <tr>
+                <td>{{ cooperatif.id }}</td>
+                <td>{{ cooperatif.NomCooperatif }}</td>
+                <td>{{ cooperatif.NomGerant }}</td>
+                <td>{{ cooperatif.telephone }}</td>
+                <td>{{ cooperatif.ville }}</td>
+                <td>{{ cooperatif.email }}</td>
+                <td>{{ cooperatif.imageProfil }}</td>
+                <td>
+                    <a href="{{ path('app_cooperatif_show', {'id': cooperatif.id}) }}">show</a>
+                    <a href="{{ path('app_cooperatif_edit', {'id': cooperatif.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cooperatif_new') }}">Create new</a>
+{% endblock %}

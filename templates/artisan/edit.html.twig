@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Artisan{% endblock %}
+
+{% block body %}
+    <h1>Edit Artisan</h1>
+
+    {{ include('artisan/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_artisan_index') }}">back to list</a>
+
+    {{ include('artisan/_delete_form.html.twig') }}
+{% endblock %}
