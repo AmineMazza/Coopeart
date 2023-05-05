@@ -42,11 +42,11 @@ class ArtisanRepository extends ServiceEntityRepository
 //    /**
 //     * @return Artisan[] Returns an array of Artisan objects
 //     */
-//    public function findByExampleField($value): array
+//    public function findByroles($ROLE_ARTISAN): array
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
+//            ->setParameter('val', $ROLE_ARTISAN)
 //            ->orderBy('a.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()

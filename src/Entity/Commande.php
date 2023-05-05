@@ -21,7 +21,7 @@ class Commande
     private ?\DateTimeInterface $DateCommande = null;
 
     #[ORM\Column]
-    private ?int $Etat = null;
+    private ?string $Etat = null;
 
     public function getId(): ?int
     {
@@ -52,12 +52,12 @@ class Commande
         return $this;
     }
 
-    public function getEtat(): ?int
+    public function getEtat(): ?string
     {
         return $this->Etat;
     }
 
-    public function setEtat(int $Etat): self
+    public function setEtat(string $Etat): self
     {
         $this->Etat = $Etat;
 

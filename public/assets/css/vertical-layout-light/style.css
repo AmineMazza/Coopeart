@@ -8645,8 +8645,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --blue: #5E50F9;
-  --indigo: #6610f2;
+  --blue: #717fe0;
+  --indigo: #717fe0;
   --purple: #6a008a;
   --pink: #E91E63;
   --red: #f96868;
@@ -8658,8 +8658,8 @@
   --white: #ffffff;
   --gray: #6c757d;
   --gray-dark: #0f1531;
-  --blue: #5E50F9;
-  --indigo: #6610f2;
+  --blue: #717fe0;
+  --indigo: #717fe0;
   --purple: #6a008a;
   --pink: #E91E63;
   --red: #f96868;
@@ -8807,7 +8807,7 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #717fe0;
   text-decoration: none;
   background-color: transparent;
 }
@@ -11643,7 +11643,7 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-link {
   font-weight: 400;
-  color: #007bff;
+  color: #717fe0;
   text-decoration: none;
 }
 
@@ -11941,7 +11941,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #717fe0;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -12875,8 +12875,8 @@ input[type="button"].btn-block {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #717fe0;
+  background-color: #717fe0;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -12940,8 +12940,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #717fe0;
+  background-color: #717fe0;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -13169,7 +13169,7 @@ input[type="button"].btn-block {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #007bff;
+  background-color: #717fe0;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -13199,7 +13199,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #007bff;
+  background-color: #717fe0;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -13232,7 +13232,7 @@ input[type="button"].btn-block {
   margin-top: 0;
   margin-right: 0.2rem;
   margin-left: 0.2rem;
-  background-color: #007bff;
+  background-color: #717fe0;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -13368,7 +13368,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #717fe0;
 }
 
 .nav-fill > .nav-link,
@@ -14053,7 +14053,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: #717fe0;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -14094,8 +14094,8 @@ input[type="button"].btn-block {
 .jsgrid .jsgrid-pager .active.jsgrid-pager-page a {
   z-index: 3;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #717fe0;
+  border-color: #717fe0;
 }
 
 .page-item.disabled .page-link, .jsgrid .jsgrid-pager .disabled.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .disabled.jsgrid-pager-page .page-link, .page-item.disabled .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item.disabled a, .jsgrid .jsgrid-pager .disabled.jsgrid-pager-nav-button a,
@@ -14495,7 +14495,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #007bff;
+  background-color: #717fe0;
   transition: width 0.6s ease;
 }
 
@@ -14582,8 +14582,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #717fe0;
+  border-color: #717fe0;
 }
 
 .list-group-item + .list-group-item {

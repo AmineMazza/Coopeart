@@ -9,6 +9,7 @@
 		<link rel="icon" href="\assets\images\logoCO.png">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		{% block stylesheets %}
+		
 			<!-- plugins:css -->
 			<link rel="stylesheet" href="/assets/vendors/feather/feather.css">
 			<link rel="stylesheet" href="/assets/vendors/ti-icons/css/themify-icons.css">
@@ -19,7 +20,8 @@
 			<link rel="stylesheet" type="text/css" href="/assets/js/select.dataTables.min.css">
 			<!-- End plugin css for this page -->
 			<!-- inject:css -->
-			<link rel="stylesheet" href="/assets/css/vertical-layout-light/style.css"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+			<link rel="stylesheet" href="/assets/css/vertical-layout-light/style.css">
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 			{{ encore_entry_link_tags('app') }}
 
 		{% endblock %}
@@ -97,11 +99,11 @@
 				</div>
 			</nav>
 			<!-- partial -->
-			<div
-				class="container-fluid page-body-wrapper">
+			<div class="container-fluid page-body-wrapper">
 				<!-- partial:partials/_sidebar.html -->
 				<nav class="sidebar sidebar-offcanvas" id="sidebar">
 					<ul class="nav">
+			{% if is_granted('ROLE_ADMIN') %}
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('app_dashboard') }}">
 								<i class="icon-grid menu-icon"></i>
@@ -111,11 +113,14 @@
 						<li class="nav-item">
 							<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
 								<i class="icon-head menu-icon"></i>
-								<span class="menu-title">Our Client</span>
+								<span class="menu-title">Utilisateurs</span>
 								<i class="menu-arrow"></i>
 							</a>
 							<div class="collapse" id="ui-basic">
 								<ul class="nav flex-column sub-menu">
+								<li class="nav-item">
+										<a class="nav-link" href="#">Les Clients</a>
+									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="/artisan">Les Artisans</a>
 									</li>
@@ -124,7 +129,7 @@
 									</li>
 								</ul>
 							</div>
-						</li>
+						</li>		
 						<li class="nav-item">
 							<a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
 								<i class="icon-columns menu-icon"></i>
@@ -148,13 +153,7 @@
 							<div class="collapse" id="charts">
 								<ul class="nav flex-column sub-menu">
 									<li class="nav-item">
-										<a class="nav-link" href="{{ path('app_products') }}">Products</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{ path('app_products') }}">Products</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{ path('app_products') }}">Products</a>
+										<a class="nav-link" href="{{ path('app_products_index') }}">Products</a>
 									</li>
 								</ul>
 							</div>
@@ -168,18 +167,74 @@
 							<div class="collapse" id="tables">
 								<ul class="nav flex-column sub-menu">
 									<li class="nav-item">
-										<a class="nav-link" href="pages/tables/basic-table.html">Catégorie 1</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="pages/tables/basic-table.html">Catégorie 2</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="pages/tables/basic-table.html">Catégorie 3</a>
+										<a class="nav-link" href="{{ path('app_categorie_index') }}">Catégories</a>
 									</li>
 								</ul>
 							</div>
 						</li>
+			{% elseif is_granted('ROLE_ARTISAN') %}
+						<li class="nav-item">
+										<a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+											<i class="icon-bar-graph menu-icon"></i>
+											<span class="menu-title">Products</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="collapse" id="charts">
+											<ul class="nav flex-column sub-menu">
+												<li class="nav-item">
+													<a class="nav-link" href="{{ path('app_products_index') }}">Products</a>
+												</li>
+											</ul>
+										</div>
+						</li>	
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+								<i class="icon-columns menu-icon"></i>
+								<span class="menu-title">Commandes</span>
+								<i class="menu-arrow"></i>
+							</a>
+							<div class="collapse" id="form-elements">
+								<ul class="nav flex-column sub-menu">
+									<li class="nav-item">
+										<a class="nav-link" href="{{ path('app_commande_index') }}">Commandes</a>
+									</li>
+								</ul>
+							</div>
+						</li>		
 					</ul>
+				
+				{% elseif is_granted('ROLE_COOP') %}
+						<li class="nav-item">
+										<a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+											<i class="icon-bar-graph menu-icon"></i>
+											<span class="menu-title">Products</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="collapse" id="charts">
+											<ul class="nav flex-column sub-menu">
+												<li class="nav-item">
+													<a class="nav-link" href="{{ path('app_products_index') }}">Products</a>
+												</li>
+											</ul>
+										</div>
+						</li>	
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+								<i class="icon-columns menu-icon"></i>
+								<span class="menu-title">Commandes</span>
+								<i class="menu-arrow"></i>
+							</a>
+							<div class="collapse" id="form-elements">
+								<ul class="nav flex-column sub-menu">
+									<li class="nav-item">
+										<a class="nav-link" href="{{ path('app_commande_index') }}">Commandes</a>
+									</li>
+								</ul>
+							</div>
+						</li>		
+					</ul>
+				{% endif %}
+				
 				</nav>
 
 				{#Body  #}

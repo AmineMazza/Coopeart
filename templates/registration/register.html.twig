@@ -2,115 +2,158 @@
 {# {% block title %}Register{% endblock %} #}
 <title>Register</title>
 <link rel="icon" href="\assets\images\logoCO.png">
-
 <style>
-/* Importing fonts from Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Reseting */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+@import url('https://rsms.me/inter/inter-ui.css');
+::selection {
+  background: #e2e2e5;
 }
-
+::-webkit-selection {
+  background: #e2e2e5;
+}
+::-moz-selection {
+  background: #e2e2e5;
+}
 body {
-    background: #ecf0f3;
+  background: white;
+  font-family: 'Inter UI', sans-serif;
+  margin: 0;
+  /* padding: 20px; */
 }
-
-.wrapper {
-    max-width: 350px;
-    min-height: 500px;
-    margin: 80px auto;
-    padding: 40px 30px 30px 30px;
-    background-color: #ecf0f3;
-    border-radius: 15px;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+.page {
+  /* background: #fff; */
+  background-image: linear-gradient(to right, #fff, #717fe0);
+  /* background-image: url("/assets/images/logo.png"); */
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  position: absolute;
+  place-content: center;
+  width: 100%;
 }
-
-.logo {
-    width: 80px;
-    margin: auto;
-}
-
-.logo img {
-    width: 100%;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0px 0px 3px #5f5f5f,
-        0px 0px 0px 5px #ecf0f3,
-        8px 8px 15px #a7aaa7,
-        -8px -8px 15px #fff;
-}
-
-.wrapper .name {
-    font-weight: 600;
-    font-size: 1.4rem;
-    letter-spacing: 1.3px;
-    padding-left: 10px;
-    color: #555;
-}
-
-.wrapper .form-field input {
-    width: 100%;
-    display: block;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.2rem;
-    color: #666;
-    padding: 10px 15px 10px 10px;
-    /* border: 1px solid red; */
-}
-
-.wrapper .form-field {
-    padding-left: 10px;
+@media (max-width: 767px) {
+  .page {
+    height: auto;
     margin-bottom: 20px;
-    border-radius: 20px;
-    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+    padding-bottom: 20px;
+  }
 }
-
-.wrapper .form-field .fas {
-    color: #555;
+.container {
+  display: flex;
+  height: 750px;
+  margin: 0 auto;
+  width: 640px;
 }
-
-.wrapper .btn {
-    box-shadow: none;
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 1000px;
+    width: 320px;
+  }
+}
+.left {
+  background: #717fe0;
+  height: 850px;
+  /* top: 20px; */
+  position: relative;
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
+}
+.login {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+  color:#fff;
+}
+.eula {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+.right {
+  background: #717fe0;
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 60%;
+  height:850px;
+}
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
     width: 100%;
-    height: 40px;
-    background-color: #03A9F4;
-    color: #fff;
-    border-radius: 25px;
-    box-shadow: 3px 3px 3px #b1b1b1,
-        -3px -3px 3px #fff;
-    letter-spacing: 1.3px;
+    height:750px;
+  }
+}
+svg {
+  position: absolute;
+  width: 320px;
+}
+path {
+  fill: none;
+  stroke: url(#linearGradient);;
+  stroke-width: 4;
+  stroke-dasharray: 240 1386;
+}
+.form {
+  margin: 40px;
+  position: absolute;
+}
+label {
+  color:  #fff;
+  display: block;
+  font-size: 14px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+input {
+  border-radius: 20px;
+  background: #fff;
+  border: 0;
+  color: #000000;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
+.form-check{
+    margin-top: 10px;
+    width: 97px;
+    display: inline-flex;
 }
 
-.wrapper .btn:hover {
-    background-color: #039BE5;
+#submit {
+  color: #000000;
+  margin-top: 40px;
+  transition: color 300ms;
 }
-
-.wrapper a {
-    text-decoration: none;
-    font-size: 0.8rem;
-    color: #03A9F4;
+#submit:focus {
+  color: #f2f2f2;
 }
-
-.wrapper a:hover {
-    color: #039BE5;
+#submit:active {
+  color: #d0d0d2;
 }
-
-@media(max-width: 380px) {
-    .wrapper {
-        margin: 30px 20px;
-        padding: 40px 15px 15px 15px;
-    }
-}
+.form-select{
+  width: 250px;
+  border-radius: 11px;
+  overflow-y: hidden;
+ } 
 </style>
 {% block body %}
-    <div class="wrapper">
+    {# <div class="wrapper">
         <div class="logo">
             <img src="\assets\images\profil.JPG" alt="">
         </div>
@@ -158,7 +201,95 @@ body {
              <button type="submit" class="btn">Register</button>
 
              <a href="/login" style="margin:90px">Back to Login In</a>
-    {{ form_end(registrationForm) }}
-        
+    {{ form_end(registrationForm) }} #}
+
+
+<div class="page">
+  <div class="container">
+    <div class="left">
+      <div class="login">Join Us</div>
+      <div class="eula">Join the <strong>CoopeArt</strong> community today and take the first step towards
+                         turning your passion for crafting into a successful business.<br><br>
+
+                        <strong>CoopeArt</strong> is the premier online marketplace for talented craftsmen
+                        to sell their handmade products to a global audience.
+       </div>
+    </div>
+    <div class="right">
+      {# <svg viewBox="0 0 320 300">
+        <defs>
+          <linearGradient
+                          inkscape:collect="always"
+                          id="linearGradient"
+                          x1="13"
+                          y1="193.49992"
+                          x2="307"
+                          y2="193.49992"
+                          gradientUnits="userSpaceOnUse">
+            <stop
+                  style="stop-color:#fff;"
+                  offset="0"
+                  id="stop876" />
+            <stop
+                  style="stop-color:#fff;"
+                  offset="1"
+                  id="stop878" />
+          </linearGradient>
+        </defs>
+        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+      </svg> #}
+      <div class="form">
+     {{ form_start(registrationForm) }}
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.UserName) }}
+            </div>
+
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.LastName) }}
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.email) }}
+            </div>          
+             <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.phone) }}
+            </div>
+
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.Adresse) }}
+            </div>
+
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.ville) }}
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+            {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                        {{ form_row(registrationForm.roles) }}
+            </div>
+            {# <div>
+            {{ form_row(registrationForm.agreeTerms) }}
+            </div> #}
+            <input type="submit" id="submit" value="Register">
+            <div style="color:#fff; margin-top:20px;margin-left:60px;">
+              <a href="/login"  style="color:#fff;">Back to Login In</a>
+            </div>
+     {{ form_end(registrationForm) }} 
+      </div>
+    </div>
+  </div>
+</div>        
 </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js'></script>
+  <script  src="assets/js/login.js"></script>	
 {% endblock %}

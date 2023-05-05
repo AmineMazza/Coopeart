@@ -20,6 +20,37 @@ class CategorieRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Categorie::class);
     }
+    // public function findAll()
+    // {
+    //     // Initialisation de la variable $categories
+    //     $categories = [];
+
+    //     // Récupération de toutes les catégories
+    //     $categories = $this->createQueryBuilder('c')
+    //         ->orderBy('c.nom', 'ASC')
+    //         ->getQuery()
+    //         ->getResult();
+
+    //     return $categories;
+    // }
+    
+    // public function __toString()
+    // {
+    //     $categories = 'categories';
+    //     return $this->$categories;
+        
+    // }
+    
+  
+
+    public function add(Categorie $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 
     public function save(Categorie $entity, bool $flush = false): void
     {
