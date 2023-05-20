@@ -336,9 +336,16 @@
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="/uploads/{{product.image}}" alt="IMG-PRODUCT">
-							<a href="{{ path('app_product_detail', {'id': product.id}) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+							{# <a href="{{ path('app_product_detail', {'id': product.id}) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
 								 Commander
-							</a>
+							</a> #}
+
+							<a href="{{path("cart_add", {id: product.id})}}" style="text-decoration: none;" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                        		<i class="bi bi-cart-plus"></i> Ajouter Panier
+                   		 	</a>
+							{# <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div> #}
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">

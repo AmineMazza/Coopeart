@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block body %}
+    <h1>Checkout</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ checkout.id }}</td>
+            </tr>
+            <tr>
+                <th>UserName</th>
+                <td>{{ checkout.UserName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ checkout.LastName }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ checkout.phone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ checkout.Adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ checkout.ville }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ checkout.pays }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ checkout.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_checkout_index') }}">back to list</a>
+
+    <a href="{{ path('app_checkout_edit', {'id': checkout.id}) }}">edit</a>
+
+    {{ include('checkout/_delete_form.html.twig') }}
+{% endblock %}

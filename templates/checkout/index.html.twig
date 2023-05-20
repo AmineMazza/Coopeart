@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Checkouts{% endblock %}
+
+{% block body %}
+    <h1>Tout les Commandes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserName</th>
+                <th>LastName</th>
+                <th>Phone</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for checkout in checkouts %}
+            <tr>
+                <td>{{ checkout.id }}</td>
+                <td>{{ checkout.UserName }}</td>
+                <td>{{ checkout.LastName }}</td>
+                <td>{{ checkout.phone }}</td>
+                <td>{{ checkout.Adresse }}</td>
+                <td>{{ checkout.ville }}</td>
+                <td>{{ checkout.pays }}</td>
+                <td>{{ checkout.email }}</td>
+                <td>
+                    <a href="{{ path('app_checkout_show', {'id': checkout.id}) }}">show</a>
+                    <a href="{{ path('app_checkout_edit', {'id': checkout.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('app_checkout_new') }}">Create new</a> #}
+{% endblock %}

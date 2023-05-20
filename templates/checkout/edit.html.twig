@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Checkout{% endblock %}
+
+{% block body %}
+    <h1>Edit Checkout</h1>
+
+    {{ include('checkout/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_checkout_index') }}">back to list</a>
+
+    {{ include('checkout/_delete_form.html.twig') }}
+{% endblock %}

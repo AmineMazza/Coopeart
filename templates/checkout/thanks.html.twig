@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Product Détail{% endblock %}</title>
+        <title>{% block title %}Thanks Page{% endblock %}</title>
         <link rel="icon" href="/assets/images/logo.png">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -38,140 +38,237 @@
         {% endblock %}
     </head>
 <body class="animsition">
-
-	<!-- Page Product Détail -->
-
-		<div class="container">
-			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
-					<img src="/assets/FrontOffice/images/icons/icon-close.png" alt="CLOSE">
-				</button>
-
-				<div class="row">
-					<div class="col-md-6 col-lg-7 p-b-30">
-						<div class="p-l-25 p-r-30 p-lr-0-lg">
-							<div class="wrap-slick3 flex-sb flex-w">
-								<div class="wrap-slick3-dots"></div>
-								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-								<div class="slick3 gallery-lb">
-									<div class="item-slick3" data-thumb="/uploads/{{product.image}}">
-										<div class="wrap-pic-w pos-relative">
-											{# <img src="/assets/FrontOffice/images/artisanat/chkara.jpg" alt="IMG-PRODUCT"> #}
-                                            <img src="/uploads/{{product.image}}" alt="Banner">
-
-
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/uploads/{{product.image}}">
-												<i class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- Header -->
+	<header class="header-v4">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			{# <div class="wrap-menu-desktop how-shadow1"> #}
+				<nav class="limiter-menu-desktop container">
 					
-					<div class="col-md-6 col-lg-5 p-b-30">
-						<div class="p-r-50 p-t-5 p-lr-0-lg">
-							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-								 {{product.title}}
-							</h4>
+					<!-- Logo desktop -->		
+					<a href="/" class="logo">
+						<img src="/assets/images/logo.png" alt="IMG-LOGO">
+					</a>
 
-							<span class="mtext-106 cl2">
-								 {{product.price}} DH
-							</span>
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+					{% for categorie in categories %}
+						<ul class="main-menu">
+							<li>
+								<a href="{{path('app_front_office_categorie_products',{categorie:categorie.id})}}" style="text-decoration: none;">{{ categorie.nom }}</a>
+							</li>
+						
+						</ul>
+					{% endfor %}	
+					</div>	
 
-							<p class="stext-102 cl3 p-t-23">
-								 {{product.description}}
-							</p>
-            {# <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button> #}
-							<!--  form -->
-							{# <div class="col-md-12 order-md-1">
-							<h4 class="mb-3" style="color:#0d6efd; margin-left:120px;margin-bottom:20px;">Checkout</h4>
-            	<form class="needs-validation" novalidate>
-								<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="Prenom">Prénom</label>
-									<input type="text" class="form-control" id="Prenom" placeholder="Prénom" value="" required>
-									<div class="invalid-feedback">
-									Valid first name is required.
-									</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="Nom">Nom</label>
-									<input type="text" class="form-control" id="Nom" placeholder="Nom" value="" required>
-									<div class="invalid-feedback">
-									Valid last name is required.
-									</div>
-								</div>
-								</div>
-
-								<div class="mb-3">
-								<label for="Telephone">Telephone</label>
-								<div class="input-group">
-									<input type="text" class="form-control" id="Telephone" placeholder="06 93 39 54 78" required>
-									<div class="invalid-feedback" style="width: 100%;">
-									Your Telephone is required.
-									</div>
-								</div>
-								</div>
-
-								<div class="mb-3">
-								<label for="email">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="you@gmail.com">
-								<div class="invalid-feedback">
-									Please enter a valid email address for shipping updates.
-								</div>
-								</div>
-
-								<div class="mb-3">
-								<label for="address">Votre Adresse </label>
-								<input type="text" class="form-control" id="address" placeholder="872 hay hasani" required>
-								<div class="invalid-feedback">
-									Please enter your shipping address.
-								</div>
-								</div>
-
-								<div class="row">
-								<div class="col-md-5 mb-3">
-									<label for="Ville">Votre Ville</label>
-									<select class="custom-select d-block w-100" id="Ville" required>
-									            <option value="">Choose...</option>
-									            <option value="#">Marrakech</option>
-												<option value="#">Casablanca</option>
-												<option value="#">Mohammedia</option>
-												<option value="#">Rabat</option>
-												<option value="#">salé</option>
-												<option value="#">Fes</option>
-												<option value="#">Meknes</option>
-												<option value="#">Oujda</option>
-												<option value="#">Tanja</option>
-												<option value="#">Tetouan</option>
-												<option value="#">Agadir</option>
-												<option value="#">Safi</option>
-									</select>
-									<div class="invalid-feedback">
-									Please select a valid Ville.
-									</div>
-								</div>
-								</div>
-
-								<hr class="mb-4">
-								<button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-							</form>
-							</div>
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+						{# <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+							<i class="zmdi zmdi-search"></i>
 						</div> #}
-					<!--  form  -->
-          <a class="btn btn-primary btn-lg btn-block" href="{{path("app_checkout_new")}}">
-										<i class="fa">Continue to checkout</i>
-								</a>
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
+
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+							<i class="zmdi zmdi-favorite-outline"></i>
+						</a>
+						<a href="{{ path('app_login') }}" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+							<i class="zmdi zmdi-account-circle"></i>
+						</a>
 					</div>
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="/"><img src="/assets/images/logo.png" alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+					<i class="zmdi zmdi-search"></i>
 				</div>
+
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+
+				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+					<i class="zmdi zmdi-favorite-outline"></i>
+				</a>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
 			</div>
 		</div>
-    
-	<!-- /Page Product Détail -->
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="/assets/FrontOffice/images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+    <div class="bg0 m-t-23 p-b-140">
+		<div class="container">
+			<div class="flex-w flex-sb-m p-b-52">
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                     <h1 style="color: #2498d2">Merci !<br>
+                       Votre commande a été bien faite
+                    </h1>
+                </div>
+                {# <a href="{{ path('app_front_office')}}">Back to Home</a> #}
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Women
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Men
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoes
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Watches
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Help
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Track Order
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Returns 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shipping
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+					Made in Morroco
+          </p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+						<img src="/assets/images/logo.png" alt="LOGO">
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="/assets/FrontOffice/images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/assets/FrontOffice/images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/assets/FrontOffice/images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+                    <a> Copyright © 2022-2023 CoopeArt. Designed and Developed By <strong>Amine MAZZA<strong></a>
+				</p>
+			</div>
+		</div>
+</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	
 
 {% block javascripts %}
          
@@ -281,3 +378,4 @@
       {% endblock %}
 </body>
 </html>
+
